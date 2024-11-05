@@ -25,7 +25,27 @@ main: addi $2, $0, 5
       mflo $12
       
       addi $25, $0, 60
-      slt $13, $11, $25
+      slt $13, $12 $25
       beq $13, $0, approved
-      #terminar
+      add $4, $0, 'R'
+      addi $2, $0, 11
+      syscall
+      add $4, $0, ' '
+      syscall
+      add $4, $0, $12
+      addi $2, $0, 1
+      syscall
+      j end
       
+approved: add $4, $0, 'A'
+          addi $2, $0, 11
+          syscall
+          add $4, $0, ' '
+          syscall
+          add $4, $0, $12
+          addi $2, $0, 1
+          syscall
+          j end
+      
+end: addi $2, $0, 10
+     syscall
